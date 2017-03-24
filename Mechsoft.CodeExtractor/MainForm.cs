@@ -67,10 +67,13 @@ namespace Mechsoft.CodeExtractor
                 return;
             }
 
+           
             
 
             //Get Online Vaults
             var onlineVaults = serverApp.GetOnlineVaults();
+
+            
 
             //Pop The Vaults Form
             var oForm = new OnlineVaultsForm(onlineVaults);

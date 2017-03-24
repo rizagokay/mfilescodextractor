@@ -54,6 +54,8 @@ namespace Mechsoft.CodeExtractor
                 }
             }
 
+
+
             //EventHandlers
             foreach (MFilesAPI.EventHandler item in Vault.ManagementOperations.GetEventHandlers())
             {
@@ -65,9 +67,47 @@ namespace Mechsoft.CodeExtractor
             }
 
 
+            //Download Applications
+            foreach (CustomApplication item in Vault.CustomApplicationManagementOperations.GetCustomApplications())
+            {
+                var appsPath = Path.Combine(vaultPathDi.FullName, "Applications");
+                if (!Directory.Exists(appsPath))
+                    Directory.CreateDirectory(appsPath);
+ 
+                var fileSession = Vault.CustomApplicationManagementOperations.DownloadCustomApplicationBlockBegin(item.ID);
+
+                long llFileSize = 0;
+                llFileSize = fileSession.FileSize;
+
+                var lBlockSize = 65536;
+                byte[] arrBuff = null;
+                long llTotalDownloaded = 0;
+                long llOffset = 0;
+
+                var iDownloadID = fileSession.DownloadID;
+
+                using (var fileStream = new FileStream(Path.Combine(vaultPathDi.FullName, string.Format(@"Applications\{0}.zip", item.Name)), FileMode.OpenOrCreate))
+                {
+                    while (arrBuff == null || arrBuff.Length == lBlockSize)
+                    {
+
+                        arrBuff = Vault.CustomApplicationManagementOperations.DownloadCustomApplicationBlock(iDownloadID, lBlockSize, llOffset);
+
+                        llTotalDownloaded = llTotalDownloaded + arrBuff.Length;
+
+                        fileStream.Write(arrBuff, 0, arrBuff.Length);
+
+                        llOffset = llOffset + arrBuff.Length;
+                    }
+                }
+
+                exResult.ApplicationsCount++;
+            }
+
+
+
             foreach (WorkflowAdmin wfItem in Vault.WorkflowOperations.GetWorkflowsAdmin())
             {
-
                 //Automatic Triggers
                 foreach (StateTransition transitionItem in wfItem.StateTransitions)
                 {
@@ -77,7 +117,6 @@ namespace Mechsoft.CodeExtractor
                         exResult.TriggerCount++;
                     }
                 }
-
 
                 //StateActions
                 foreach (StateAdmin stateItem in wfItem.States)

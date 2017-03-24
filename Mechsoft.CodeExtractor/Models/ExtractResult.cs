@@ -15,5 +15,6 @@ namespace Mechsoft.CodeExtractor.Models
         public int TriggerCount { get; set; }
         public int StateActionCount { get; set; }
         public int ConditionCount { get; set; }
+        public int ApplicationsCount { get; set; }
     }
 }

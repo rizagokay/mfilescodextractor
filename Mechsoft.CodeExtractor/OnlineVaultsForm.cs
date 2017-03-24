@@ -17,7 +17,6 @@ namespace Mechsoft.CodeExtractor
 
         private VaultsOnServer _vaults;
 
-
         public OnlineVaultsForm(VaultsOnServer VaultsOnServer)
         {
             InitializeComponent();
@@ -60,7 +59,7 @@ namespace Mechsoft.CodeExtractor
 
                     LoggedInVaultHolder.LoggedInVault = selectedVault.LogIn();
 
-
+                    
                     DialogResult result = folderBrowserDialog1.ShowDialog();
                     if (result == DialogResult.OK)
                     {
@@ -76,8 +75,9 @@ namespace Mechsoft.CodeExtractor
                         sb.AppendLine("State Triggers: " + exResult.TriggerCount.ToString());
                         sb.AppendLine("Conditions: " + exResult.ConditionCount.ToString());
                         sb.AppendLine("Automatic Numbering: " + exResult.NumberingCount.ToString());
-                        sb.AppendLine("Calculated Value: " + exResult.CalculatedValuesCount.ToString());
+                        sb.AppendLine("Calculated Values: " + exResult.CalculatedValuesCount.ToString());
                         sb.AppendLine("Validations: " + exResult.ValidationsCount.ToString());
+                        sb.AppendLine("Applications: " + exResult.ApplicationsCount.ToString());
 
                         MessageBox.Show(sb.ToString(), "M-Files Code Extractor", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
