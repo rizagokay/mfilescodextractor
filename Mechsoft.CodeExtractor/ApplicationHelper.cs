@@ -129,13 +129,13 @@ namespace Mechsoft.CodeExtractor
 
                     if (stateItem.Postconditions.VBScript)
                     {
-                        CreateFileForPostConditions(Path.Combine(vaultPathDi.FullName), stateItem.ActionRunVBScriptDefinition, wfItem.Workflow.Name, stateItem.Name);
+                        CreateFileForPostConditions(Path.Combine(vaultPathDi.FullName), stateItem.Postconditions.VBScriptDefinition, wfItem.Workflow.Name, stateItem.Name);
                         exResult.ConditionCount++;
                     }
 
                     if (stateItem.Preconditions.VBScript)
                     {
-                        CreateFileForPreConditions(Path.Combine(vaultPathDi.FullName), stateItem.ActionRunVBScriptDefinition, wfItem.Workflow.Name, stateItem.Name);
+                        CreateFileForPreConditions(Path.Combine(vaultPathDi.FullName), stateItem.Preconditions.VBScriptDefinition, wfItem.Workflow.Name, stateItem.Name);
                         exResult.ConditionCount++;
                     }
 
