@@ -1,6 +1,6 @@
-﻿namespace Mechsoft.CodeExtractor
+﻿namespace Mechsoft.ConsultantToolbox
 {
-    partial class OnlineVaultsForm
+    partial class ExtractScriptsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OnlineVaultsForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExtractScriptsForm));
             this.list_Vaults = new System.Windows.Forms.ListBox();
             this.btn_Extract = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();

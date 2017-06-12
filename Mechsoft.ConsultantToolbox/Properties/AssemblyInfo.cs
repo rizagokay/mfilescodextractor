@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Mechsoft Code Extractor")]
+[assembly: AssemblyTitle("Mechsoft Consultant Toolbox")]
 [assembly: AssemblyDescription("Extracts all sorts of code from M-Files vault(s).")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Mechsoft©")]
-[assembly: AssemblyProduct("Mechsoft.CodeExtractor")]
+[assembly: AssemblyCompany("Mechsoft ©")]
+[assembly: AssemblyProduct("Mechsoft.ConsultantToolbox")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

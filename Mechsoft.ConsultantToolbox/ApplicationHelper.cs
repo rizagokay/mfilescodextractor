@@ -1,4 +1,4 @@
-﻿using Mechsoft.CodeExtractor.Models;
+﻿using Mechsoft.ConsultantToolbox.Models;
 using MFilesAPI;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mechsoft.CodeExtractor
+namespace Mechsoft.ConsultantToolbox
 {
     public class ApplicationHelper
     {

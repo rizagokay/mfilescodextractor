@@ -7,8 +7,8 @@
     <ProjectGuid>{F2510EFD-C751-4558-9DFC-842C57F366EB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mechsoft.CodeExtractor</RootNamespace>
-    <AssemblyName>Mechsoft.CodeExtractor</AssemblyName>
+    <RootNamespace>Mechsoft.ConsultantToolbox</RootNamespace>
+    <AssemblyName>Mechsoft.ConsultantToolbox</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -50,6 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationHelper.cs" />
+    <Compile Include="ExtractValueListItemsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExtractValueListItemsForm.Designer.cs">
+      <DependentUpon>ExtractValueListItemsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoggedInVaultHolder.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -59,19 +65,19 @@
     </Compile>
     <Compile Include="Models\ExtractResult.cs" />
     <Compile Include="Models\UserType.cs" />
-    <Compile Include="OnlineVaultsForm.cs">
+    <Compile Include="ExtractScriptsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OnlineVaultsForm.Designer.cs">
-      <DependentUpon>OnlineVaultsForm.cs</DependentUpon>
+    <Compile Include="ExtractScriptsForm.Designer.cs">
+      <DependentUpon>ExtractScriptsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OnlineVaultsForm.resx">
-      <DependentUpon>OnlineVaultsForm.cs</DependentUpon>
+    <EmbeddedResource Include="ExtractScriptsForm.resx">
+      <DependentUpon>ExtractScriptsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
