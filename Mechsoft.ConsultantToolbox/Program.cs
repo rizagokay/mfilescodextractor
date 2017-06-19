@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using Mechsoft.ConsultantToolbox.Models;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,12 @@ namespace Mechsoft.ConsultantToolbox
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new MainForm());
+
+
+                ModuleFactory.Modules.Add(new CodeExtractorModule());
+                ModuleFactory.Modules.Add(new ValueListExtractorModule());
+
+                Application.Run(new LoginForm());
             }
             else
             {

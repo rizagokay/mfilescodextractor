@@ -65,7 +65,7 @@ namespace Mechsoft.ConsultantToolbox
                     {
                         string folderName = folderBrowserDialog1.SelectedPath;
                         Cursor.Current = Cursors.WaitCursor;
-                        exResult = ApplicationHelper.ExtractVault(folderName, LoggedInVaultHolder.LoggedInVault);
+                        exResult = ApplicationHelper.ExtractVaultScripts(folderName, LoggedInVaultHolder.LoggedInVault);
                         Cursor.Current = Cursors.Default;
 
                         var sb = new StringBuilder();
@@ -110,7 +110,7 @@ namespace Mechsoft.ConsultantToolbox
 
                     try
                     {
-                        ApplicationHelper.ExtractVault(folderName, item.LogIn());
+                        ApplicationHelper.ExtractVaultScripts(folderName, item.LogIn());
                         extractedVaults++;
 
 

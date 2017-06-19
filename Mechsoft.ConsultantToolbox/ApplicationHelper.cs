@@ -11,7 +11,7 @@ namespace Mechsoft.ConsultantToolbox
 {
     public class ApplicationHelper
     {
-        public static ExtractResult ExtractVault(string PathForExtract, Vault Vault)
+        public static ExtractResult ExtractVaultScripts(string PathForExtract, Vault Vault)
         {
             var exResult = new ExtractResult();
 
@@ -147,6 +147,12 @@ namespace Mechsoft.ConsultantToolbox
 
             return exResult;
 
+        }
+
+        public static void CreateExcelFile(int ValueListId, string PathForExtract)
+        {
+            //TODO
+            
         }
 
         private static void CreateFileForAutomaticTransitions(string filePath, string VbScript, string WfName, string TransitionName)

@@ -36,6 +36,14 @@
     <ApplicationIcon>code.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.87.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.87.1\lib\net40\ClosedXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,6 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationHelper.cs" />
+    <Compile Include="ExractValueListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExractValueListForm.Designer.cs">
+      <DependentUpon>ExractValueListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExtractValueListItemsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,12 +71,21 @@
       <DependentUpon>ExtractValueListItemsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoggedInVaultHolder.cs" />
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\BaseModule.cs" />
+    <Compile Include="Models\ModuleFactory.cs" />
+    <Compile Include="Models\Modules.cs" />
     <Compile Include="Models\ExtractResult.cs" />
     <Compile Include="Models\UserType.cs" />
     <Compile Include="ExtractScriptsForm.cs">
@@ -71,13 +94,23 @@
     <Compile Include="ExtractScriptsForm.Designer.cs">
       <DependentUpon>ExtractScriptsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ValueListModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="ExractValueListForm.resx">
+      <DependentUpon>ExractValueListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExtractValueListItemsForm.resx">
+      <DependentUpon>ExtractValueListItemsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExtractScriptsForm.resx">
       <DependentUpon>ExtractScriptsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -89,6 +122,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -117,6 +151,9 @@
   <ItemGroup>
     <Content Include="code.ico" />
     <None Include="Resources\code.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Enums\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
