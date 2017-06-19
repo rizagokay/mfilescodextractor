@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mechsoft.CodeExtractor.Models
+namespace Mechsoft.ConsultantToolbox.Models
 {
     public class UserType
     {

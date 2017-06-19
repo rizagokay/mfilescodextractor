@@ -1,4 +1,4 @@
-﻿namespace Mechsoft.CodeExtractor
+﻿namespace Mechsoft.ConsultantToolbox
 {
     partial class MainForm
     {

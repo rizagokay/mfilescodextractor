@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MFilesAPI;
 
-namespace Mechsoft.CodeExtractor
+namespace Mechsoft.ConsultantToolbox
 {
     public class LoggedInVaultHolder
     {

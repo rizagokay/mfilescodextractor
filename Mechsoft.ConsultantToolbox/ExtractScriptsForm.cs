@@ -1,4 +1,4 @@
-﻿using Mechsoft.CodeExtractor.Models;
+﻿using Mechsoft.ConsultantToolbox.Models;
 using MFilesAPI;
 using System;
 using System.Collections.Generic;
@@ -10,14 +10,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Mechsoft.CodeExtractor
+namespace Mechsoft.ConsultantToolbox
 {
-    public partial class OnlineVaultsForm : Form
+    public partial class ExtractScriptsForm : Form
     {
 
         private VaultsOnServer _vaults;
 
-        public OnlineVaultsForm(VaultsOnServer VaultsOnServer)
+        public ExtractScriptsForm(VaultsOnServer VaultsOnServer)
         {
             InitializeComponent();
             _vaults = VaultsOnServer;
