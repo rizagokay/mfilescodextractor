@@ -16,15 +16,15 @@ namespace Mechsoft.ConsultantToolbox
         private string _filePath;
 
         private int _selectedValueListId;
-
+        
         public string FilePath { get { return _filePath; } }
-
+        public static bool IsExternalChecked;
         public int SelectedValueListId { get { return _selectedValueListId; } }
 
         public ExtractValueListItemsForm()
         {
             InitializeComponent();
-        }
+    }
 
         private void btn_Extract_Click(object sender, EventArgs e)
         {
@@ -44,6 +44,8 @@ namespace Mechsoft.ConsultantToolbox
 
             var savedialog = saveFileDialog1.ShowDialog();
 
+            IsExternalChecked = checkBox1.Checked;
+            
             if (savedialog == DialogResult.OK)
             {
                 _filePath = saveFileDialog1.FileName;
@@ -73,9 +75,13 @@ namespace Mechsoft.ConsultantToolbox
 
                 comboBox1.DataSource = convertedValueLists;
                 comboBox1.DisplayMember = "Name";
-                comboBox1.ValueMember = "ID";
-
+                comboBox1.ValueMember = "ID";                
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
