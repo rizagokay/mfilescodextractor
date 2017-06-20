@@ -15,7 +15,7 @@ namespace Mechsoft.ConsultantToolbox
     {
 
         private VaultsOnServer _vaults;
-
+       
         public ExractValueListForm(VaultsOnServer VaultsOnServer)
         {
             _vaults = VaultsOnServer;
@@ -53,17 +53,18 @@ namespace Mechsoft.ConsultantToolbox
 
                 try
                 {
+                    
+                   LoggedInVaultHolder.LoggedInVault = selectedVault.LogIn();
 
-                    LoggedInVaultHolder.LoggedInVault = selectedVault.LogIn();
-
-                    var selectValueListForm = new ExtractValueListItemsForm();
+                   var selectValueListForm = new ExtractValueListItemsForm();
                    var result = selectValueListForm.ShowDialog();
+                   if (result == DialogResult.OK)
+                   {
 
-                    if (result == DialogResult.OK)
-                    {
                         //Create & Save Excel
-                        ApplicationHelper.CreateExcelFile(selectValueListForm.SelectedValueListId, selectValueListForm.FilePath);
-                    }
+                       ApplicationHelper.CreateExcelFile(selectValueListForm.SelectedValueListId, selectValueListForm.FilePath);
+                       MessageBox.Show("Başarılı Bir Şekilde aktarma yapıldı.", "M-Files Code Extractor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                   }
 
                 }
                 catch (Exception Ex)

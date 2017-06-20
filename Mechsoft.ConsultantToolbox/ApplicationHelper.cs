@@ -6,11 +6,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClosedXML.Excel;
 
 namespace Mechsoft.ConsultantToolbox
 {
     public class ApplicationHelper
     {
+
         public static ExtractResult ExtractVaultScripts(string PathForExtract, Vault Vault)
         {
             var exResult = new ExtractResult();
@@ -151,8 +153,67 @@ namespace Mechsoft.ConsultantToolbox
 
         public static void CreateExcelFile(int ValueListId, string PathForExtract)
         {
-            //TODO
             
+            //TODO
+            if (LoggedInVaultHolder.LoggedInVault != null)
+            {
+                //var valueList = LoggedInVaultHolder.LoggedInVault.ValueListOperations.GetValueList(ValueListId);
+                var vault = LoggedInVaultHolder.LoggedInVault.Name;
+                var foo = LoggedInVaultHolder.LoggedInVault.ValueListItemOperations.GetValueListItems(ValueListId);
+                var wb = new XLWorkbook();
+
+                var ws = wb.Worksheets.Add("Değer Listesi");
+
+
+                //ID
+                ws.Cell("A1").Value = "ID";
+                ws.Cell("A1").Style.Font.Bold = true;
+                //External ID
+                
+                
+
+                //Kolon Genişlikleri
+                ws.Column(1).Width = 10.36;
+                
+
+                var startNumber = 2;
+                if (ExtractValueListItemsForm.IsExternalChecked == true)
+                {
+                    ws.Cell("B1").Value = "External ID";
+                    ws.Cell("B1").Style.Font.Bold = true;
+
+                    //Adı
+                    ws.Cell("C1").Value = "Adı";
+                    ws.Cell("C1").Style.Font.Bold = true;
+
+                    ws.Column(2).Width = 10.36;
+                    ws.Column(3).Width = 36;
+
+                    foreach (ValueListItem item in foo)
+                    {
+                        ws.Cell("A" + startNumber.ToString()).Value = item.ID;
+                        ws.Cell("B" + startNumber.ToString()).Value = item.DisplayID;
+                        ws.Cell("C" + startNumber.ToString()).Value = item.Name;
+
+                        startNumber++;
+                    }
+                } else
+                {
+                    ws.Cell("B1").Value = "Adı";
+                    ws.Cell("B1").Style.Font.Bold = true;
+
+                    ws.Column(2).Width = 36;
+
+                    foreach (ValueListItem item in foo)
+                    {
+                        ws.Cell("A" + startNumber.ToString()).Value = item.ID;
+                        ws.Cell("B" + startNumber.ToString()).Value = item.Name;
+
+                        startNumber++;
+                    }
+                }
+                wb.SaveAs(PathForExtract);
+            }
         }
 
         private static void CreateFileForAutomaticTransitions(string filePath, string VbScript, string WfName, string TransitionName)
