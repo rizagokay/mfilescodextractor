@@ -44,7 +44,7 @@ namespace Mechsoft.ConsultantToolbox
 
             var savedialog = saveFileDialog1.ShowDialog();
 
-            IsExternalChecked = checkBox1.Checked ? true : false;
+            IsExternalChecked = checkBox1.Checked;
             
             if (savedialog == DialogResult.OK)
             {
