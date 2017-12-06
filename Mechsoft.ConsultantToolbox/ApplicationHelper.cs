@@ -161,7 +161,7 @@ namespace Mechsoft.ConsultantToolbox
                 var vault = LoggedInVaultHolder.LoggedInVault.Name;
                 var foo = LoggedInVaultHolder.LoggedInVault.ValueListItemOperations.GetValueListItems(ValueListId);
                 var wb = new XLWorkbook();
-
+                
                 var ws = wb.Worksheets.Add("Değer Listesi");
 
 
